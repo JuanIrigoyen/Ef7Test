@@ -1,0 +1,611 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5370662A-6A24-4B08-9D57-C5926CE6A523}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Maldivas.Entities.Main</RootNamespace>
+    <AssemblyName>Maldivas.Entities.Main</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Ef7Test\packages\Microsoft.EntityFrameworkCore.1.0.0-rc2-final\lib\net451\Microsoft.EntityFrameworkCore.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Relational, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Ef7Test\packages\Microsoft.EntityFrameworkCore.Relational.1.0.0-rc2-final\lib\net451\Microsoft.EntityFrameworkCore.Relational.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.SqlServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Ef7Test\packages\Microsoft.EntityFrameworkCore.SqlServer.1.0.0-rc2-final\lib\net451\Microsoft.EntityFrameworkCore.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Ef7Test\packages\Microsoft.Extensions.Caching.Abstractions.1.0.0-rc2-final\lib\netstandard1.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Ef7Test\packages\Microsoft.Extensions.Caching.Memory.1.0.0-rc2-final\lib\net451\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Ef7Test\packages\Microsoft.Extensions.DependencyInjection.1.0.0-rc2-final\lib\netstandard1.1\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Ef7Test\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0-rc2-final\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Ef7Test\packages\Microsoft.Extensions.Logging.1.0.0-rc2-final\lib\netstandard1.1\Microsoft.Extensions.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Ef7Test\packages\Microsoft.Extensions.Logging.Abstractions.1.0.0-rc2-final\lib\netstandard1.1\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Ef7Test\packages\Microsoft.Extensions.Options.1.0.0-rc2-final\lib\netstandard1.0\Microsoft.Extensions.Options.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Ef7Test\packages\Microsoft.Extensions.Primitives.1.0.0-rc2-final\lib\netstandard1.0\Microsoft.Extensions.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Remotion.Linq, Version=2.0.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\Ef7Test\packages\Remotion.Linq.2.0.2\lib\net45\Remotion.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\Ef7Test\packages\System.Diagnostics.DiagnosticSource.4.0.0-rc2-24027\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Interactive.Async, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\Ef7Test\packages\Ix-Async.1.2.5\lib\net45\System.Interactive.Async.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\Agencias_transporte.cs" />
+    <Compile Include="Model\Agencias_transporte_costes_envios.cs" />
+    <Compile Include="Model\Agencias_transporte_costes_trayectos.cs" />
+    <Compile Include="Model\Agencias_transporte_departamentos.cs" />
+    <Compile Include="Model\Agencias_transporte_etiquetas_temporal.cs" />
+    <Compile Include="Model\Agencias_transporte_matriculas.cs" />
+    <Compile Include="Model\Agencias_transporte_tarifas.cs" />
+    <Compile Include="Model\Agencias_transporte_tipos_portes.cs" />
+    <Compile Include="Model\Agencias_transporte_visitas.cs" />
+    <Compile Include="Model\Agencias_transporte_zonas.cs" />
+    <Compile Include="Model\Agentes.cs" />
+    <Compile Include="Model\Agentes_aduanas.cs" />
+    <Compile Include="Model\Agentes_departamentos.cs" />
+    <Compile Include="Model\Agentes_direcciones.cs" />
+    <Compile Include="Model\Agentes_graficos.cs" />
+    <Compile Include="Model\Agentes_visitas.cs" />
+    <Compile Include="Model\Almacen.cs" />
+    <Compile Include="Model\Almacenes_departamentos.cs" />
+    <Compile Include="Model\Almacen_cadena_suministro.cs" />
+    <Compile Include="Model\Almacen_cadena_suministro_configuracion.cs" />
+    <Compile Include="Model\Almacen_inventario.cs" />
+    <Compile Include="Model\Almacen_ubicaciones.cs" />
+    <Compile Include="Model\Anticipos.cs" />
+    <Compile Include="Model\Areas_financieras.cs" />
+    <Compile Include="Model\Articulos.cs" />
+    <Compile Include="Model\Articulos_acabados.cs" />
+    <Compile Include="Model\Articulos_almacen_ubicacion_predeterminada.cs" />
+    <Compile Include="Model\Articulos_calculo_punto_pedido.cs" />
+    <Compile Include="Model\Articulos_catalogo_repetidos.cs" />
+    <Compile Include="Model\Articulos_centro_coste_porcentaje.cs" />
+    <Compile Include="Model\Articulos_certificaciones.cs" />
+    <Compile Include="Model\Articulos_chapa_acabado.cs" />
+    <Compile Include="Model\Articulos_chapa_aspecto.cs" />
+    <Compile Include="Model\Articulos_chapa_calidad.cs" />
+    <Compile Include="Model\Articulos_chapa_embuticion.cs" />
+    <Compile Include="Model\Articulos_chapa_forma.cs" />
+    <Compile Include="Model\Articulos_chapa_medida.cs" />
+    <Compile Include="Model\Articulos_chapa_recubrimiento.cs" />
+    <Compile Include="Model\Articulos_chapa_tratamiento.cs" />
+    <Compile Include="Model\Articulos_clasificacion.cs" />
+    <Compile Include="Model\Articulos_clasificacion_relacion.cs" />
+    <Compile Include="Model\Articulos_compatibles.cs" />
+    <Compile Include="Model\Articulos_competidores_acuerdos.cs" />
+    <Compile Include="Model\Articulos_conjuntos.cs" />
+    <Compile Include="Model\Articulos_consumos.cs" />
+    <Compile Include="Model\Articulos_contenedores_capacidad.cs" />
+    <Compile Include="Model\Articulos_embalajes.cs" />
+    <Compile Include="Model\Articulos_embo_uk.cs" />
+    <Compile Include="Model\Articulos_estados.cs" />
+    <Compile Include="Model\Articulos_estados_fabricacion.cs" />
+    <Compile Include="Model\Articulos_etiquetas_idiomas.cs" />
+    <Compile Include="Model\Articulos_familias_compras.cs" />
+    <Compile Include="Model\Articulos_familias_medio_ambiente.cs" />
+    <Compile Include="Model\Articulos_familias_ventas.cs" />
+    <Compile Include="Model\Articulos_familias_ventas_idiomas.cs" />
+    <Compile Include="Model\Articulos_familias_ventas_multiples.cs" />
+    <Compile Include="Model\Articulos_familias_ventas_multiples_idiomas.cs" />
+    <Compile Include="Model\Articulos_fases.cs" />
+    <Compile Include="Model\Articulos_formatos_tipo.cs" />
+    <Compile Include="Model\Articulos_graficos.cs" />
+    <Compile Include="Model\Articulos_guia_tasaciones.cs" />
+    <Compile Include="Model\Articulos_idiomas.cs" />
+    <Compile Include="Model\Articulos_imagenes.cs" />
+    <Compile Include="Model\Articulos_lotes.cs" />
+    <Compile Include="Model\Articulos_lotes_tipos.cs" />
+    <Compile Include="Model\Articulos_lote_fabricacion.cs" />
+    <Compile Include="Model\Articulos_medidas.cs" />
+    <Compile Include="Model\Articulos_montajes.cs" />
+    <Compile Include="Model\Articulos_movimientos.cs" />
+    <Compile Include="Model\Articulos_movimientos_documentos_tipos.cs" />
+    <Compile Include="Model\Articulos_movimientos_historico.cs" />
+    <Compile Include="Model\Articulos_movimientos_tipos.cs" />
+    <Compile Include="Model\Articulos_objetivos.cs" />
+    <Compile Include="Model\Articulos_piecerio_subcontratado.cs" />
+    <Compile Include="Model\Articulos_piezas_tipos.cs" />
+    <Compile Include="Model\Articulos_recursos.cs" />
+    <Compile Include="Model\Articulos_referencias.cs" />
+    <Compile Include="Model\Articulos_referencias_produccion.cs" />
+    <Compile Include="Model\Articulos_reparto_costes.cs" />
+    <Compile Include="Model\Articulos_stocks.cs" />
+    <Compile Include="Model\Articulos_stocks_auditacion.cs" />
+    <Compile Include="Model\Articulos_stocks_auditacion_configuracion.cs" />
+    <Compile Include="Model\Articulos_stocks_configuracion.cs" />
+    <Compile Include="Model\Articulos_stocks_conjuntos.cs" />
+    <Compile Include="Model\Articulos_tarifas.cs" />
+    <Compile Include="Model\Articulos_tarifas_copia.cs" />
+    <Compile Include="Model\Articulos_tarifas_historico.cs" />
+    <Compile Include="Model\Articulos_tarifas_temporal.cs" />
+    <Compile Include="Model\Articulos_tarifas_tipos.cs" />
+    <Compile Include="Model\Articulos_tipos_calidad.cs" />
+    <Compile Include="Model\Articulos_tipos_competencia.cs" />
+    <Compile Include="Model\Articulos_tipos_materia_prima.cs" />
+    <Compile Include="Model\Articulos_tipos_origen.cs" />
+    <Compile Include="Model\Articulos_tipos_produccion.cs" />
+    <Compile Include="Model\Articulos_tipos_productos.cs" />
+    <Compile Include="Model\Articulos_tipos_suministro.cs" />
+    <Compile Include="Model\Articulos_tipos_troquel.cs" />
+    <Compile Include="Model\Articulos_traducciones.cs" />
+    <Compile Include="Model\Articulos_troqueles_costo_compra.cs" />
+    <Compile Include="Model\Articulos_utiles.cs" />
+    <Compile Include="Model\Bancos.cs" />
+    <Compile Include="Model\Bancos_cuentas.cs" />
+    <Compile Include="Model\Bancos_cuentas_conceptos.cs" />
+    <Compile Include="Model\Bancos_cuentas_configuracion.cs" />
+    <Compile Include="Model\Bancos_cuentas_divisas_apuntes.cs" />
+    <Compile Include="Model\Bancos_cuentas_divisas_tipos.cs" />
+    <Compile Include="Model\Bancos_cuentas_tipos.cs" />
+    <Compile Include="Model\Calendarios.cs" />
+    <Compile Include="Model\Calendarios_configuracion.cs" />
+    <Compile Include="Model\Calendarios_tipos.cs" />
+    <Compile Include="Model\Cargas_tipos.cs" />
+    <Compile Include="Model\Cartera_compras.cs" />
+    <Compile Include="Model\Cartera_compras_historico.cs" />
+    <Compile Include="Model\Cartera_configuracion.cs" />
+    <Compile Include="Model\Cartera_estados.cs" />
+    <Compile Include="Model\Cartera_ventas.cs" />
+    <Compile Include="Model\Cartera_ventas_historico.cs" />
+    <Compile Include="Model\Centros_costes.cs" />
+    <Compile Include="Model\Centros_costes_grupos.cs" />
+    <Compile Include="Model\Centros_costes_grupos_relacion.cs" />
+    <Compile Include="Model\Centros_costes_maquinas.cs" />
+    <Compile Include="Model\Centros_coste_financieros.cs" />
+    <Compile Include="Model\Centros_trabajo.cs" />
+    <Compile Include="Model\Centros_trabajo_grupos.cs" />
+    <Compile Include="Model\Centros_trabajo_grupos_relacion.cs" />
+    <Compile Include="Model\Centros_trabajo_tipos.cs" />
+    <Compile Include="Model\Certificaciones_producto.cs" />
+    <Compile Include="Model\Certificaciones_sistema.cs" />
+    <Compile Include="Model\Clientes.cs" />
+    <Compile Include="Model\Clientes_anticipos.cs" />
+    <Compile Include="Model\Clientes_articulos_bloqueados.cs" />
+    <Compile Include="Model\Clientes_articulos_certificados.cs" />
+    <Compile Include="Model\Clientes_bancos.cs" />
+    <Compile Include="Model\Clientes_cuentas_contables.cs" />
+    <Compile Include="Model\Clientes_departamentos.cs" />
+    <Compile Include="Model\Clientes_direcciones.cs" />
+    <Compile Include="Model\Clientes_direcciones_tipos.cs" />
+    <Compile Include="Model\Clientes_embalajes_configuracion.cs" />
+    <Compile Include="Model\Clientes_graficos.cs" />
+    <Compile Include="Model\Clientes_grupos_compras.cs" />
+    <Compile Include="Model\Clientes_grupos_compras_rappels.cs" />
+    <Compile Include="Model\Clientes_grupos_tarifas.cs" />
+    <Compile Include="Model\Clientes_grupos_tarifas_copia.cs" />
+    <Compile Include="Model\Clientes_grupos_tarifas_historico.cs" />
+    <Compile Include="Model\Clientes_grupos_tarifas_temporal.cs" />
+    <Compile Include="Model\Clientes_grupos_tarifas_tipos.cs" />
+    <Compile Include="Model\Clientes_internet_accesos.cs" />
+    <Compile Include="Model\Clientes_internet_grupos.cs" />
+    <Compile Include="Model\Clientes_internet_seguridad.cs" />
+    <Compile Include="Model\Clientes_internet_seguridad_claves.cs" />
+    <Compile Include="Model\Clientes_objetivos.cs" />
+    <Compile Include="Model\Clientes_precios_especiales.cs" />
+    <Compile Include="Model\Clientes_precios_especiales_cantidad.cs" />
+    <Compile Include="Model\Clientes_precios_especiales_cantidad_copia.cs" />
+    <Compile Include="Model\Clientes_precios_especiales_cantidad_historico.cs" />
+    <Compile Include="Model\Clientes_precios_especiales_cantidad_temporal.cs" />
+    <Compile Include="Model\Clientes_precios_especiales_copia.cs" />
+    <Compile Include="Model\Clientes_precios_especiales_historico.cs" />
+    <Compile Include="Model\Clientes_precios_especiales_temporal.cs" />
+    <Compile Include="Model\Clientes_precios_procesos.cs" />
+    <Compile Include="Model\Clientes_precios_tipos.cs" />
+    <Compile Include="Model\Clientes_procesos.cs" />
+    <Compile Include="Model\Clientes_rappels.cs" />
+    <Compile Include="Model\Clientes_riesgos.cs" />
+    <Compile Include="Model\Clientes_riesgos_informacion.cs" />
+    <Compile Include="Model\Clientes_sinonimos.cs" />
+    <Compile Include="Model\Clientes_sugerencias.cs" />
+    <Compile Include="Model\Clientes_transporte_expediciones.cs" />
+    <Compile Include="Model\Clientes_valoracion.cs" />
+    <Compile Include="Model\Clientes_visitas.cs" />
+    <Compile Include="Model\Clientes_zonas.cs" />
+    <Compile Include="Model\Codificacion_defectos.cs" />
+    <Compile Include="Model\Colores_ral.cs" />
+    <Compile Include="Model\Competidores.cs" />
+    <Compile Include="Model\Competidores_articulos_certificados.cs" />
+    <Compile Include="Model\Competidores_departamentos.cs" />
+    <Compile Include="Model\Competidores_ofertas.cs" />
+    <Compile Include="Model\Competidores_sinonimos.cs" />
+    <Compile Include="Model\Competidores_visitas.cs" />
+    <Compile Include="Model\Componentes.cs" />
+    <Compile Include="Model\Compras_albaranes_cabecera.cs" />
+    <Compile Include="Model\Compras_albaranes_detalle.cs" />
+    <Compile Include="Model\Compras_albaranes_entradas.cs" />
+    <Compile Include="Model\Compras_albaranes_entradas_log.cs" />
+    <Compile Include="Model\Compras_facturas_cabecera.cs" />
+    <Compile Include="Model\Compras_facturas_detalle.cs" />
+    <Compile Include="Model\Compras_facturas_detalle_cuentas.cs" />
+    <Compile Include="Model\Compras_facturas_periodos_cierre.cs" />
+    <Compile Include="Model\Compras_pedidos_cabecera.cs" />
+    <Compile Include="Model\Compras_pedidos_detalle.cs" />
+    <Compile Include="Model\Compras_prestamo_material.cs" />
+    <Compile Include="Model\Compras_proformas_cabecera.cs" />
+    <Compile Include="Model\Compras_proformas_detalle.cs" />
+    <Compile Include="Model\Compras_proveedores_articulos_presupuestados.cs" />
+    <Compile Include="Model\Compras_reclamaciones_cabecera.cs" />
+    <Compile Include="Model\Compras_reclamaciones_detalle.cs" />
+    <Compile Include="Model\Contenedores_tipos.cs" />
+    <Compile Include="Model\Controles_requeridos.cs" />
+    <Compile Include="Model\Costes_articulos_configuracion.cs" />
+    <Compile Include="Model\Costes_configuracion.cs" />
+    <Compile Include="Model\Costes_configuracion_tipos.cs" />
+    <Compile Include="Model\Cuentas_contables_tipos.cs" />
+    <Compile Include="Model\Departamentos_tipos.cs" />
+    <Compile Include="Model\Direcciones_mails_direcciones.cs" />
+    <Compile Include="Model\Direcciones_tipos.cs" />
+    <Compile Include="Model\Documentacion.cs" />
+    <Compile Include="Model\Documentacion_archivos.cs" />
+    <Compile Include="Model\Documentacion_conceptos.cs" />
+    <Compile Include="Model\Documentacion_configuracion.cs" />
+    <Compile Include="Model\Documentacion_grupos.cs" />
+    <Compile Include="Model\Embalajes.cs" />
+    <Compile Include="Model\Embalajes_cajas_tipos.cs" />
+    <Compile Include="Model\Embalajes_idiomas.cs" />
+    <Compile Include="Model\Embalajes_tipos.cs" />
+    <Compile Include="Model\Empresa_activa.cs" />
+    <Compile Include="Model\Errores_sistema.cs" />
+    <Compile Include="Model\Estadisticas.cs" />
+    <Compile Include="Model\Estadisticas_listas.cs" />
+    <Compile Include="Model\Estadisticas_usuarios.cs" />
+    <Compile Include="Model\Estadistica_ventas_coches_europa.cs" />
+    <Compile Include="Model\Etiquetas.cs" />
+    <Compile Include="Model\Etiquetas_rangos.cs" />
+    <Compile Include="Model\Etiquetas_registro.cs" />
+    <Compile Include="Model\Evaluacion_clientes.cs" />
+    <Compile Include="Model\Evaluacion_proveedor.cs" />
+    <Compile Include="Model\Evaluacion_proveedor_servicios.cs" />
+    <Compile Include="Model\Evaluacion_transportistas.cs" />
+    <Compile Include="Model\Evolucion_costes_lotes_totales.cs" />
+    <Compile Include="Model\Fabricantes.cs" />
+    <Compile Include="Model\Fases.cs" />
+    <Compile Include="Model\Fases_tipos.cs" />
+    <Compile Include="Model\Formacion_biblioteca_cursos.cs" />
+    <Compile Include="Model\Formacion_cursos.cs" />
+    <Compile Include="Model\Formacion_cursos_descripcion.cs" />
+    <Compile Include="Model\Formacion_cursos_obligatorios.cs" />
+    <Compile Include="Model\Formacion_cursos_personal.cs" />
+    <Compile Include="Model\Formacion_ficheros.cs" />
+    <Compile Include="Model\Formacion_plan_cabecera.cs" />
+    <Compile Include="Model\Formacion_plan_detalle.cs" />
+    <Compile Include="Model\Formacion_registros.cs" />
+    <Compile Include="Model\Formacion_tipo_curso.cs" />
+    <Compile Include="Model\Formacion_tipo_formacion.cs" />
+    <Compile Include="Model\Formas_pago.cs" />
+    <Compile Include="Model\Formas_pago_idiomas.cs" />
+    <Compile Include="Model\Formulas_calculo.cs" />
+    <Compile Include="Model\Formulas_calculo_modulos.cs" />
+    <Compile Include="Model\Formulas_campos.cs" />
+    <Compile Include="Model\Incidencias.cs" />
+    <Compile Include="Model\Incidencias_usuarios.cs" />
+    <Compile Include="Model\Incoterms.cs" />
+    <Compile Include="Model\Informes.cs" />
+    <Compile Include="Model\Informes_formatos.cs" />
+    <Compile Include="Model\Interlocutores.cs" />
+    <Compile Include="Model\Interlocutores_clasificacion.cs" />
+    <Compile Include="Model\Iso_acciones_correctivas.cs" />
+    <Compile Include="Model\Iso_auditorias.cs" />
+    <Compile Include="Model\Iso_causas_queja.cs" />
+    <Compile Include="Model\Iso_no_conformidades.cs" />
+    <Compile Include="Model\Iso_reclamaciones.cs" />
+    <Compile Include="Model\Ivas.cs" />
+    <Compile Include="Model\Ivas_categorias.cs" />
+    <Compile Include="Model\Jaulas.cs" />
+    <Compile Include="Model\Jaulas_movimientos.cs" />
+    <Compile Include="Model\Jaulas_stocks.cs" />
+    <Compile Include="Model\Lanzamientos.cs" />
+    <Compile Include="Model\Lanzamientos_reserva.cs" />
+    <Compile Include="Model\Lenguajes.cs" />
+    <Compile Include="Model\Lista_materiales.cs" />
+    <Compile Include="Model\Lista_materiales_historico.cs" />
+    <Compile Include="Model\Lista_materiales_modificaciones.cs" />
+    <Compile Include="Model\Lista_materiales_modificaciones_fotos.cs" />
+    <Compile Include="Model\Mails_tipos.cs" />
+    <Compile Include="MaldivasMainContext.cs" />
+    <Compile Include="Model\Mantenimiento_detalles_averias.cs" />
+    <Compile Include="Model\Mantenimiento_hojas_trabajo_cabecera.cs" />
+    <Compile Include="Model\Mantenimiento_hojas_trabajo_detalle.cs" />
+    <Compile Include="Model\Mantenimiento_lanzamientos_cabecera.cs" />
+    <Compile Include="Model\Mantenimiento_lanzamientos_detalle.cs" />
+    <Compile Include="Model\Mantenimiento_preventivo_cabecera.cs" />
+    <Compile Include="Model\Mantenimiento_preventivo_detalle.cs" />
+    <Compile Include="Model\Mantenimiento_solicitudes.cs" />
+    <Compile Include="Model\Mantenimiento_solicitud_asistencia_tecnica.cs" />
+    <Compile Include="Model\Mantenimiento_tipo_maestro.cs" />
+    <Compile Include="Model\Maquinas.cs" />
+    <Compile Include="Model\Maquinas_centros_trabajo_relacion.cs" />
+    <Compile Include="Model\Maquinas_componentes.cs" />
+    <Compile Include="Model\Maquinas_familias.cs" />
+    <Compile Include="Model\Maquinas_grupos.cs" />
+    <Compile Include="Model\Maquinas_grupos_componentes.cs" />
+    <Compile Include="Model\Maquinas_grupos_relacion.cs" />
+    <Compile Include="Model\Maquinas_preventivo_relacion.cs" />
+    <Compile Include="Model\Maquinas_tipos.cs" />
+    <Compile Include="Model\Marcas.cs" />
+    <Compile Include="Model\Materiales.cs" />
+    <Compile Include="Model\Normas.cs" />
+    <Compile Include="Model\Observaciones_notificaciones.cs" />
+    <Compile Include="Model\Operaciones_auxiliares.cs" />
+    <Compile Include="Model\Ordenes_trabajo.cs" />
+    <Compile Include="Model\Ordenes_trabajo_estados.cs" />
+    <Compile Include="Model\Ordenes_trabajo_tipos.cs" />
+    <Compile Include="Model\Personal.cs" />
+    <Compile Include="Model\Personal_absentismo.cs" />
+    <Compile Include="Model\Personal_accidentes.cs" />
+    <Compile Include="Model\Personal_accidentes_actividad_actual.cs" />
+    <Compile Include="Model\Personal_accidentes_cargos.cs" />
+    <Compile Include="Model\Personal_accidentes_causa.cs" />
+    <Compile Include="Model\Personal_accidentes_CNAE.cs" />
+    <Compile Include="Model\Personal_accidentes_CNO.cs" />
+    <Compile Include="Model\Personal_accidentes_descripcion.cs" />
+    <Compile Include="Model\Personal_accidentes_grado_lesion.cs" />
+    <Compile Include="Model\Personal_accidentes_lesion.cs" />
+    <Compile Include="Model\Personal_accidentes_localizacion.cs" />
+    <Compile Include="Model\Personal_accidentes_lugar.cs" />
+    <Compile Include="Model\Personal_accidentes_motivo.cs" />
+    <Compile Include="Model\Personal_accidentes_objetos_implicados.cs" />
+    <Compile Include="Model\Personal_accidentes_parte.cs" />
+    <Compile Include="Model\Personal_accidentes_repeticion.cs" />
+    <Compile Include="Model\Personal_accidentes_secciones.cs" />
+    <Compile Include="Model\Personal_accidentes_seccion_estadisticas.cs" />
+    <Compile Include="Model\Personal_accidentes_situacion_profesional.cs" />
+    <Compile Include="Model\Personal_accidentes_tipo_asistencia.cs" />
+    <Compile Include="Model\Personal_accidentes_tipo_trabajo.cs" />
+    <Compile Include="Model\Personal_almacenes_vestuarios.cs" />
+    <Compile Include="Model\Personal_calendarios.cs" />
+    <Compile Include="Model\Personal_calendarios_base.cs" />
+    <Compile Include="Model\Personal_calendarios_base_detalle.cs" />
+    <Compile Include="Model\Personal_calendarios_tipo.cs" />
+    <Compile Include="Model\Personal_cargos_empresa.cs" />
+    <Compile Include="Model\Personal_categorias.cs" />
+    <Compile Include="Model\Personal_categorias_historico.cs" />
+    <Compile Include="Model\Personal_contratos_oficiales.cs" />
+    <Compile Include="Model\Personal_contratos_oficiales_bonificaciones.cs" />
+    <Compile Include="Model\Personal_curriculum_vitae.cs" />
+    <Compile Include="Model\Personal_departamentos.cs" />
+    <Compile Include="Model\Personal_empresas.cs" />
+    <Compile Include="Model\Personal_empresas_historico.cs" />
+    <Compile Include="Model\Personal_equipamiento.cs" />
+    <Compile Include="Model\Personal_equipamiento_base.cs" />
+    <Compile Include="Model\Personal_equipamiento_movimientos.cs" />
+    <Compile Include="Model\Personal_ere.cs" />
+    <Compile Include="Model\Personal_especialidades.cs" />
+    <Compile Include="Model\Personal_estados.cs" />
+    <Compile Include="Model\Personal_evaluacion.cs" />
+    <Compile Include="Model\Personal_evaluacion_anual.cs" />
+    <Compile Include="Model\Personal_evaluacion_equipo.cs" />
+    <Compile Include="Model\Personal_formacion.cs" />
+    <Compile Include="Model\Personal_formacion_centros.cs" />
+    <Compile Include="Model\Personal_formacion_idiomas.cs" />
+    <Compile Include="Model\Personal_formacion_tipo.cs" />
+    <Compile Include="Model\Personal_formacion_titulaciones.cs" />
+    <Compile Include="Model\Personal_grupos_trabajo.cs" />
+    <Compile Include="Model\Personal_grupos_trabajo_relacion.cs" />
+    <Compile Include="Model\Personal_horarios.cs" />
+    <Compile Include="Model\Personal_idiomas.cs" />
+    <Compile Include="Model\Personal_incidencias.cs" />
+    <Compile Include="Model\Personal_perfil.cs" />
+    <Compile Include="Model\Personal_perfil_tareas.cs" />
+    <Compile Include="Model\Personal_presencia.cs" />
+    <Compile Include="Model\Personal_presencia_fotos.cs" />
+    <Compile Include="Model\Personal_presencia_tipos.cs" />
+    <Compile Include="Model\Personal_prima_asistencia_puntualidad.cs" />
+    <Compile Include="Model\Personal_prima_produccion.cs" />
+    <Compile Include="Model\Personal_puestos_trabajo.cs" />
+    <Compile Include="Model\Personal_ramas.cs" />
+    <Compile Include="Model\Personal_regimen_trabajo.cs" />
+    <Compile Include="Model\Personal_secciones.cs" />
+    <Compile Include="Model\Personal_seguridad_social_epigrafes.cs" />
+    <Compile Include="Model\Personal_seguridad_social_grupo_cotizacion.cs" />
+    <Compile Include="Model\Personal_tipo_contrato.cs" />
+    <Compile Include="Model\Personal_turnos.cs" />
+    <Compile Include="Model\Piezas.cs" />
+    <Compile Include="Model\Planificacion_cataforesis.cs" />
+    <Compile Include="Model\Planificador_informe.cs" />
+    <Compile Include="Model\Posiciones.cs" />
+    <Compile Include="Model\Precios_copias.cs" />
+    <Compile Include="Model\Preparacion_previa_material_unidades.cs" />
+    <Compile Include="Model\Preparacion_previa_material_volumen.cs" />
+    <Compile Include="Model\Prioridades.cs" />
+    <Compile Include="Model\Procesos_externos.cs" />
+    <Compile Include="Model\Procesos_tipos.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Model\Proveedores.cs" />
+    <Compile Include="Model\Proveedores_articulos_bloqueados.cs" />
+    <Compile Include="Model\Proveedores_bancos.cs" />
+    <Compile Include="Model\Proveedores_certificaciones.cs" />
+    <Compile Include="Model\Proveedores_compras_areas.cs" />
+    <Compile Include="Model\Proveedores_compras_tipos.cs" />
+    <Compile Include="Model\Proveedores_confirming_tipos.cs" />
+    <Compile Include="Model\Proveedores_cuentas_contables.cs" />
+    <Compile Include="Model\Proveedores_departamentos.cs" />
+    <Compile Include="Model\Proveedores_direcciones.cs" />
+    <Compile Include="Model\Proveedores_graficos.cs" />
+    <Compile Include="Model\Proveedores_precios_compra.cs" />
+    <Compile Include="Model\Proveedores_presupuestos_prevision.cs" />
+    <Compile Include="Model\Proveedores_procesos.cs" />
+    <Compile Include="Model\Proveedores_sinonimos.cs" />
+    <Compile Include="Model\Proveedores_transporte_expediciones.cs" />
+    <Compile Include="Model\Proveedores_visitas.cs" />
+    <Compile Include="Model\Proyectos.cs" />
+    <Compile Include="Model\Puertos_embarque.cs" />
+    <Compile Include="Model\Remesas_compras.cs" />
+    <Compile Include="Model\Remesas_compras_cabecera.cs" />
+    <Compile Include="Model\Remesas_compras_detalle.cs" />
+    <Compile Include="Model\Remesas_ventas.cs" />
+    <Compile Include="Model\Remesas_ventas_cabecera.cs" />
+    <Compile Include="Model\Remesas_ventas_detalle.cs" />
+    <Compile Include="Model\Remesas_ventas_sepa.cs" />
+    <Compile Include="Model\Reparto_costes.cs" />
+    <Compile Include="Model\Rutas_planificadas.cs" />
+    <Compile Include="Model\Scheduler_configuracion.cs" />
+    <Compile Include="Model\Scheduler_destinatarios.cs" />
+    <Compile Include="Model\Scheduler_log.cs" />
+    <Compile Include="Model\Scheduler_parameters.cs" />
+    <Compile Include="Model\Secciones_contables.cs" />
+    <Compile Include="Model\Seguridad_conceptos.cs" />
+    <Compile Include="Model\Seguridad_grupos.cs" />
+    <Compile Include="Model\Sentencia_sql_ejemplos.cs" />
+    <Compile Include="Model\Servicios.cs" />
+    <Compile Include="Model\Simulaciones.cs" />
+    <Compile Include="Model\Soldadura.cs" />
+    <Compile Include="Model\sysdiagrams.cs" />
+    <Compile Include="Model\Talleres.cs" />
+    <Compile Include="Model\Talleres_departamentos.cs" />
+    <Compile Include="Model\Talleres_visitas.cs" />
+    <Compile Include="Model\Tipos_confirming.cs" />
+    <Compile Include="Model\Tipo_cargas.cs" />
+    <Compile Include="Model\Trabajos.cs" />
+    <Compile Include="Model\Trabajos_centros.cs" />
+    <Compile Include="Model\Trabajos_personal.cs" />
+    <Compile Include="Model\Transportes_salidas.cs" />
+    <Compile Include="Model\Transportistas.cs" />
+    <Compile Include="Model\Transportistas_departamentos.cs" />
+    <Compile Include="Model\Transportistas_evaluacion.cs" />
+    <Compile Include="Model\Transportistas_matriculas.cs" />
+    <Compile Include="Model\Transportistas_visitas.cs" />
+    <Compile Include="Model\Traspaso_maquinas_autoexpendedoras.cs" />
+    <Compile Include="Model\Troqueles.cs" />
+    <Compile Include="Model\Troqueles_articulos.cs" />
+    <Compile Include="Model\Troqueles_articulos_proveedores.cs" />
+    <Compile Include="Model\Troqueles_empresas.cs" />
+    <Compile Include="Model\Troqueles_funcion.cs" />
+    <Compile Include="Model\Troqueles_imagenes.cs" />
+    <Compile Include="Model\Troqueles_inventario.cs" />
+    <Compile Include="Model\Troqueles_mantenimiento.cs" />
+    <Compile Include="Model\Troqueles_mantenimiento_conceptos.cs" />
+    <Compile Include="Model\Troqueles_movimientos.cs" />
+    <Compile Include="Model\Troqueles_stocks.cs" />
+    <Compile Include="Model\Troqueles_tipos_funcion.cs" />
+    <Compile Include="Model\Troqueles_tipos_movimientos.cs" />
+    <Compile Include="Model\Utiles.cs" />
+    <Compile Include="Model\Utiles_conjunto.cs" />
+    <Compile Include="Model\Utiles_control.cs" />
+    <Compile Include="Model\Utiles_cunas_posicionamiento.cs" />
+    <Compile Include="Model\Utiles_estados.cs" />
+    <Compile Include="Model\Utiles_garras.cs" />
+    <Compile Include="Model\Utiles_jaulas.cs" />
+    <Compile Include="Model\Utiles_piezas.cs" />
+    <Compile Include="Model\Utiles_soldar.cs" />
+    <Compile Include="Model\Valoracion_colaboracion.cs" />
+    <Compile Include="Model\Valoracion_transporte.cs" />
+    <Compile Include="Model\Ventas_albaranes_cabecera.cs" />
+    <Compile Include="Model\Ventas_albaranes_carga.cs" />
+    <Compile Include="Model\Ventas_albaranes_carga_historico.cs" />
+    <Compile Include="Model\Ventas_albaranes_carga_operarios.cs" />
+    <Compile Include="Model\Ventas_albaranes_carga_salidas.cs" />
+    <Compile Include="Model\Ventas_albaranes_detalle.cs" />
+    <Compile Include="Model\Ventas_albaranes_detalle_ubicaciones.cs" />
+    <Compile Include="Model\Ventas_albaranes_embalajes.cs" />
+    <Compile Include="Model\Ventas_documentacion_facturacion.cs" />
+    <Compile Include="Model\Ventas_facturas_cabecera.cs" />
+    <Compile Include="Model\Ventas_facturas_detalle.cs" />
+    <Compile Include="Model\Ventas_facturas_embalajes.cs" />
+    <Compile Include="Model\Ventas_facturas_periodos_cierre.cs" />
+    <Compile Include="Model\Ventas_indicadores_comerciales.cs" />
+    <Compile Include="Model\Ventas_pedidos_baja_rentabilidad.cs" />
+    <Compile Include="Model\Ventas_pedidos_cabecera.cs" />
+    <Compile Include="Model\Ventas_pedidos_detalle.cs" />
+    <Compile Include="Model\Ventas_pedidos_embalajes.cs" />
+    <Compile Include="Model\Ventas_proformas_baja_rentabilidad.cs" />
+    <Compile Include="Model\Ventas_proformas_cabecera.cs" />
+    <Compile Include="Model\Ventas_proformas_detalle.cs" />
+    <Compile Include="Model\Ventas_proformas_embalajes.cs" />
+    <Compile Include="Model\Ventas_proformas_totales.cs" />
+    <Compile Include="Model\Ventas_reclamaciones_cabecera.cs" />
+    <Compile Include="Model\Ventas_reclamaciones_detalle.cs" />
+    <Compile Include="Model\Vinculos_externos.cs" />
+    <Compile Include="Model\Vinculos_externos_usuarios.cs" />
+    <Compile Include="Model\Zonas_centros.cs" />
+    <Compile Include="Model\Zonas_centros_secciones.cs" />
+    <Compile Include="Model\Zonas_secciones_empresa.cs" />
+    <Compile Include="Model\Zonas_trabajo.cs" />
+    <Compile Include="Model\Zonas_trabajo_edificios.cs" />
+    <Compile Include="Model\Zona_seccion.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
