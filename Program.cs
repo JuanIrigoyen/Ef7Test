@@ -18,7 +18,7 @@ namespace Ef7Test
 
             sw.Start();
             var optionsBuilder = new DbContextOptionsBuilder();
-            optionsBuilder.UseSqlServer(@"Data Source=.\SqlExpress;Initial Catalog=Geimex;Integrated Security=True;MultipleActiveResultSets=True");
+            optionsBuilder.UseSqlServer(@"Data Source=.\SqlExpress;Initial Catalog=Maldivas_Geimex;Integrated Security=True;MultipleActiveResultSets=True");
 
             using (MaldivasMainContext mmc = new MaldivasMainContext(optionsBuilder.Options))
             {
